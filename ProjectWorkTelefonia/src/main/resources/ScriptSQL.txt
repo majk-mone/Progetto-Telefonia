@@ -1,0 +1,58 @@
+-- Database: telefonia
+
+-- DROP DATABASE IF EXISTS telefonia;
+
+CREATE DATABASE telefonia
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Italian_Italy.1252'
+    LC_CTYPE = 'Italian_Italy.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+GRANT ALL ON DATABASE telefonia TO postgres;
+
+GRANT TEMPORARY, CONNECT ON DATABASE telefonia TO PUBLIC;
+
+
+-- Table: public.chiamate
+
+-- DROP TABLE IF EXISTS public.chiamate;
+
+CREATE TABLE IF NOT EXISTS public.chiamate
+(
+    id_chiamata integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    id_utente integer NOT NULL,
+    data_fine time without time zone,
+    durata bigint,
+    data_inizio time without time zone
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.chiamate
+    OWNER to postgres;
+	
+	-- Table: public.cliente
+
+-- DROP TABLE IF EXISTS public.cliente;
+
+CREATE TABLE IF NOT EXISTS public.cliente
+(
+    id_cliente integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    nome character varying COLLATE pg_catalog."default" NOT NULL,
+    cognome character varying COLLATE pg_catalog."default" NOT NULL,
+    codice_fiscale character varying COLLATE pg_catalog."default" NOT NULL,
+    numero numeric NOT NULL,
+    stato_linea character varying COLLATE pg_catalog."default" NOT NULL,
+    tipo_linea character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT cliente_pkey PRIMARY KEY (id_cliente)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.cliente
+    OWNER to postgres;
+
+GRANT ALL ON TABLE public.cliente TO postgres;

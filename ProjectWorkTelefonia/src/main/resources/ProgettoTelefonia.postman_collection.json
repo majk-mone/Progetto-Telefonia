@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "600b3955-8bd2-4449-ac7c-c4b29be7558b",
+		"name": "ProgettoTelefonia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Salva Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nome\": \"zorro\",\r\n        \"cognome\": \"baudo\",\r\n        \"codFiscale\": \"asdf1234ghjkl\",\r\n        \"numero\": 123456789,\r\n        \"statoLinea\": \"cessato\",\r\n        \"tipoLinea\": \"fisso\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/clienti",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"clienti"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Salva Cliente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUtente\":1,\r\n    \"dataInizio\":2022-05-17 17:05:30.000,\r\n    \"dataFine\":2022-05-17 18:55:30.000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/chiamate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"chiamate"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Elimina Cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/cliente/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"cliente",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista Clienti",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/clienti",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"clienti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aggiorna Cliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nome\": \"pippo\",\r\n        \"cognome\": \"baudo\",\r\n        \"codFiscale\": \"asdf1234ghjkl\",\r\n        \"numero\": 123456789,\r\n        \"statoLinea\": \"cessato\",\r\n        \"tipoLinea\": \"fisso\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/clienti/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"clienti",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inserisci Chiamata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idUtente\":2,\r\n    \"dataInizio\":\"2022-05-18T16:08:19.469+00:00\",\r\n    \"dataFine\":\"2022-05-18T16:55:19.469+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/chiamate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"chiamate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aggiorna Chiamata",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idUtente\":5,\r\n    \"dataInizio\":\"2022-06-18T16:45:19.469+00:00\",\r\n    \"dataFine\":\"2022-06-18T17:08:19.469+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/chiamata/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"chiamata",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina Chiamata",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/chiamata/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"chiamata",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
