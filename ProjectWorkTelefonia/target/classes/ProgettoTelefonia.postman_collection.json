@@ -209,6 +209,58 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Lista Chiamate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/chiamate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"chiamate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report Chiamate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/reportChiamate/1970-01-01T17:08:19.469+00:00/1970-01-01T17:55:19.469+00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"reportChiamate",
+						"1970-01-01T17:08:19.469+00:00",
+						"1970-01-01T17:55:19.469+00:00"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

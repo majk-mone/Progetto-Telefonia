@@ -18,31 +18,31 @@ import telefonia.service.ClienteService;
 @RestController
 public class ClienteController {
 
-	@Autowired
-	ClienteService clienteService;
+    @Autowired
+    ClienteService clienteService;
 
-	@Autowired
-	ClienteRepository clienteRepository;
+    @Autowired
+    ClienteRepository clienteRepository;
 
-	@GetMapping("/clienti")
-	public List<ClienteModel> listaClient() {
-		return clienteRepository.findAll();
-	}
+    @GetMapping("/clienti")
+    public List<ClienteModel> listaClient() {
+	return clienteRepository.findAll();
+    }
 
-	@PostMapping("/clienti")
-	public ClienteModel inserisciCliente(@RequestBody ClienteModel c) {
-		return clienteService.inserisciCliente(c);
+    @PostMapping("/clienti")
+    public ClienteModel inserisciCliente(@RequestBody ClienteModel c) {
+	return clienteService.inserisciCliente(c);
 
-	}
+    }
 
-	@PutMapping("/clienti/{id}")
-	public ClienteModel updateCliente(@PathVariable(required = true) Integer id, @RequestBody ClienteModel c) {
-		return clienteService.updateCliente(id, c);
-	}
+    @PutMapping("/clienti/{id}")
+    public ClienteModel updateCliente(@PathVariable(required = true) Integer id, @RequestBody ClienteModel c) {
+	return clienteService.updateCliente(id, c);
+    }
 
-	@DeleteMapping("/clienti/{id}")
-	public void eliminaCliente(@PathVariable(required = true) Integer id) {
-		clienteService.eliminaCliente(id);
+    @DeleteMapping("/clienti/{id}")
+    public void eliminaCliente(@PathVariable(required = true) Integer id) {
+	clienteService.eliminaCliente(id);
 
-	}
+    }
 }

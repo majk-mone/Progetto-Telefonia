@@ -1,6 +1,9 @@
 package telefonia.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,35 +19,38 @@ import telefonia.service.ChiamateService;
 @RestController
 public class ChiamataController {
 
-	@Autowired
-	ChiamateService chiamateService;
+    @Autowired
+    ChiamateService chiamateService;
 
-	@Autowired
-	ChiamateRepository chiamateRepository;
+    @Autowired
+    ChiamateRepository chiamateRepository;
 
-	@GetMapping("/chiamate")
-	public Iterable<ChiamateModel> vediChiamate() {
-		return chiamateRepository.findAll();
-	}
+    @GetMapping("/chiamate")
+    public Iterable<ChiamateModel> vediChiamate() {
+	return chiamateRepository.findAll();
+    }
 
-	@PostMapping("/chiamate")
-	public ChiamateModel inserisciChiamata(@RequestBody ChiamateModel c) {
-		return chiamateService.inserisciChiamata(c);
-	}
+    @PostMapping("/chiamate")
+    public ChiamateModel inserisciChiamata(@RequestBody ChiamateModel c) {
+	return chiamateService.inserisciChiamata(c);
+    }
 
-	@PutMapping(value = "/chiamata/{idChiamata}")
-	public ChiamateModel modificaChiamata(@PathVariable("idChiamata") Integer idChiamata,
-			@RequestBody ChiamateModel c) {
-		return chiamateService.updateChiamate(idChiamata, c);
-	}
+    @PutMapping(value = "/chiamata/{idChiamata}")
+    public ChiamateModel modificaChiamata(@PathVariable("idChiamata") Integer idChiamata,
+	    @RequestBody ChiamateModel c) {
+	return chiamateService.updateChiamate(idChiamata, c);
+    }
 
-	@DeleteMapping("chiamata/{idChiamata}")
-	public void cancellaChiamata(@PathVariable("idChiamata") Integer idChiamata) {
-		chiamateService.eliminaChiamata(idChiamata);
-	}
+    @DeleteMapping("chiamata/{idChiamata}")
+    public void cancellaChiamata(@PathVariable("idChiamata") Integer idChiamata) {
+	chiamateService.eliminaChiamata(idChiamata);
+    }
 
-//	@GetMapping("/reportChiamate/{idLinea}/{dateStart}/{dateEnd}")
-//	public Long reportChiamate(@PathVariable("idLinea")Integer idLinea, @PathVariable("dateStart")@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")Date dateStart, @PathVariable("dateEnd")@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")Date dateEnd) {
-//		return chiamateService.calcoloDurataChiamata(idLinea, dateStart, dateEnd);
-//	}
+    @GetMapping("/reportChiamate/{dateStart}/{dateEnd}")
+    public Long reportChiamate(
+	    @PathVariable("dateStart") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") Date dateStart,
+	    @PathVariable("dateEnd") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") Date dateEnd) {
+	return chiamateService.calcoloDurataChiamata(dateStart, dateEnd);
+    }
+
 }
